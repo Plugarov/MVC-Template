@@ -5,7 +5,7 @@ namespace Data
 {
     public class DemoDbContext : DbContext
     {
-        public DemoDbContext() : base("connection string")
+        public DemoDbContext() : base("DefaultConnection")
         {
 
         }
@@ -20,7 +20,13 @@ namespace Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            OnServerCreating(modelBuilder);
+        }
 
+        public void OnServerCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Server>()
+                .Property(s => s.DateTimeCreated).IsRequired();
         }
     }
 }

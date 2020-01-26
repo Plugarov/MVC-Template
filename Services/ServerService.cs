@@ -18,6 +18,8 @@ namespace Services
 
         public IEnumerable<ServerModel> GetAll()
         {
+            var all = serverSetWrapper.All.ToList();
+
             return new List<ServerModel> { new ServerModel() { Id = new System.Guid() } };
         }
     }

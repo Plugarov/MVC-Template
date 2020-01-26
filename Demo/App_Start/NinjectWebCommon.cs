@@ -61,9 +61,6 @@ namespace Demo.App_Start
 
         private static void RegisterServices(IKernel kernel)
         {
-            //kernel.Bind<ILiveDemoEfDbContextSaveChanges>().To<DemoEfDbContext>().InRequestScope();
-
-
             kernel.Bind(typeof(IEfDbSetWrapper<>)).To(typeof(EfDbSetWrapper<>));
 
             kernel.Bind<IServerService>().To<ServerService>();
